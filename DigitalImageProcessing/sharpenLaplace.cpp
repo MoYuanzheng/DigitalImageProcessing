@@ -1,4 +1,4 @@
-#include"head.h"
+﻿#include"head.h"
 
 Mat sharpenLaplace(Mat& image) {
 	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH06/Fig0638(a)(lenna_RGB).tif");
@@ -30,7 +30,7 @@ Mat sharpenLaplace(Mat& image) {
 	Mat dst;
 	cv::merge(mergeChannels, 3, dst);
 	dst = _merge(image, dst);
-	cv::imshow("�ں�", dst);
+	cv::imshow("融合", dst);
 
 	cv::waitKey(0);
 	return image;
@@ -51,6 +51,7 @@ Mat _convolution(Mat& image, Mat& image_temp) {
 					sum += imageEx.at<uchar>(i + m - 1, j + n - 1) * image_temp.at<uchar>(m, n);
 				}
 			}
+
 			int t = sum - 4 * imageEx.at<uchar>(i, j);
 			//cout << sum - 4 * image.at<uchar>(i, j) << endl;
 			if (t > 0) {

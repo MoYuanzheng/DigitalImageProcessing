@@ -42,6 +42,9 @@
     <ClCompile Include="SharpenLaplace.cpp">
       <Filter>源文件\part6</Filter>
     </ClCompile>
+    <ClCompile Include="ColorDivision.cpp">
+      <Filter>源文件\part6</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">

@@ -16,7 +16,7 @@ int main() {
 	//image = colorSmooth(image);
 	//image = sharpenLaplace(image);
 
-
+	image = colorDevision(image);
 
 	return 0;
 }
