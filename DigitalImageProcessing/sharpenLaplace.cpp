@@ -59,7 +59,6 @@ Mat _convolution(Mat& image, Mat& image_temp) {
 			else {
 				convImage.at<uchar>(i - 1, j - 1) = 0;
 			}
-
 		}
 	}
 	//cv::imshow("convImage", convImage);

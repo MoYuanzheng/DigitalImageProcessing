@@ -13,6 +13,6 @@ int main() {
 	//Mat rainRgb = gray2rgb(rain);
 	//image = hue(image);
 	//image = colorSmooth(image);
-	image = sharpenLaplace(image);
+	//image = sharpenLaplace(image);
 	return 0;
 }

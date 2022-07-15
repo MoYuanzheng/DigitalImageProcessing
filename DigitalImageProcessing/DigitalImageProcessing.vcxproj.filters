@@ -13,31 +13,34 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\part6">
+      <UniqueIdentifier>{51e94363-5516-4cd5-8dca-07bd67f48273}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="HSI2RGB.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hue.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="RGB2HSI.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="RGBExtract.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="ColorSmooth.cpp">
+      <Filter>源文件\part6</Filter>
     </ClCompile>
     <ClCompile Include="GRAY2RGB.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\part6</Filter>
     </ClCompile>
-    <ClCompile Include="ColorSmooth.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="HSI2RGB.cpp">
+      <Filter>源文件\part6</Filter>
+    </ClCompile>
+    <ClCompile Include="hue.cpp">
+      <Filter>源文件\part6</Filter>
+    </ClCompile>
+    <ClCompile Include="RGB2HSI.cpp">
+      <Filter>源文件\part6</Filter>
+    </ClCompile>
+    <ClCompile Include="RGBExtract.cpp">
+      <Filter>源文件\part6</Filter>
     </ClCompile>
     <ClCompile Include="sharpenLaplace.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\part6</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
