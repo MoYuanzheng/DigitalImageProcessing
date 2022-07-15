@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mian.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="HSI2RGB.cpp">
@@ -30,12 +30,18 @@
     <ClCompile Include="RGBExtract.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GRAY2RGB.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorSmooth.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sharpenLaplace.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="part_6.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

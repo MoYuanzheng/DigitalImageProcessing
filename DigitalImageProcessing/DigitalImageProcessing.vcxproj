@@ -127,15 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ColorSmooth.cpp" />
+    <ClCompile Include="GRAY2RGB.cpp" />
     <ClCompile Include="HSI2RGB.cpp" />
     <ClCompile Include="hue.cpp" />
-    <ClCompile Include="mian.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="RGB2HSI.cpp" />
     <ClCompile Include="RGBExtract.cpp" />
+    <ClCompile Include="sharpenLaplace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />
-    <ClInclude Include="part_6.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

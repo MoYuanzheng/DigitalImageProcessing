@@ -10,7 +10,6 @@ void rgbExtract(Mat& image) {
 			red.at<Vec3b>(i, j)[2] = image.at<Vec3b>(i, j)[2];
 			green.at<Vec3b>(i, j)[1] = image.at<Vec3b>(i, j)[1];
 			blue.at<Vec3b>(i, j)[0] = image.at<Vec3b>(i, j)[0];
-
 		}
 	}
 	imshow("B", blue);

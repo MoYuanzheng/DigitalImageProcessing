@@ -27,13 +27,11 @@ Mat hsi2rgb(Mat& image) {
 				G = I * (1 - S);
 				B = I * ((1 + S * cos(H * PI / 180) / cos((60 - H) * PI / 180)));
 				R = 3 * I - (G + B);
-
 			}
 
 			image.at<Vec3b>(i, j)[0] = B * 255;
 			image.at<Vec3b>(i, j)[1] = G * 255;
 			image.at<Vec3b>(i, j)[2] = R * 255;
-
 		}
 	}
 

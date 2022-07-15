@@ -7,8 +7,7 @@ Mat hue(Mat& image) {
 	return image;
 }
 
-
-//! 10/(1+e^(5-x)) 平淡图像校正曲线 
+//! 10/(1+e^(5-x)) 平淡图像校正曲线
 Mat avgImage(Mat& image) {
 	Mat imageTrans = Mat::zeros(image.size(), image.type());
 
@@ -31,7 +30,7 @@ Mat avgImage(Mat& image) {
 	return image;
 }
 
-//! x^2 偏亮图像校正曲线 
+//! x^2 偏亮图像校正曲线
 Mat lightImage(Mat& image) {
 	image = imread("D:\\image/book/DIP3E_Original_Images_CH06/Fig0635(middle_row_left_chalk ).tif");
 	Mat imageTrans = Mat::zeros(image.size(), image.type());
@@ -55,7 +54,7 @@ Mat lightImage(Mat& image) {
 	return image;
 }
 
-//! x^(1/2) 偏暗图像校正曲线 
+//! x^(1/2) 偏暗图像校正曲线
 Mat darkImage(Mat& image) {
 	image = imread("D:\\image/book/DIP3E_Original_Images_CH06/Fig0635(bottom_left_stream).tif");
 	Mat imageTrans = Mat::zeros(image.size(), image.type());

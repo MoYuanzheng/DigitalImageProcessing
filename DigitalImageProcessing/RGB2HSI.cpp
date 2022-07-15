@@ -1,7 +1,6 @@
 #include"head.h"
 
 Mat rgb2hsi(Mat& image) {
-
 	double ¦È;
 	double H;
 	double S;
@@ -32,7 +31,6 @@ Mat rgb2hsi(Mat& image) {
 			hsiImage.at<Vec3b>(i, j)[0] = H / 360 * 255;
 			hsiImage.at<Vec3b>(i, j)[1] = S * 255;
 			hsiImage.at<Vec3b>(i, j)[2] = I * 255;
-
 		}
 	}
 
