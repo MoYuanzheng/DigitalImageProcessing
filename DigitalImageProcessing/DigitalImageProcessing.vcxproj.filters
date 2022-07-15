@@ -30,7 +30,7 @@
     <ClCompile Include="HSI2RGB.cpp">
       <Filter>源文件\part6</Filter>
     </ClCompile>
-    <ClCompile Include="hue.cpp">
+    <ClCompile Include="Hue.cpp">
       <Filter>源文件\part6</Filter>
     </ClCompile>
     <ClCompile Include="RGB2HSI.cpp">
@@ -39,7 +39,7 @@
     <ClCompile Include="RGBExtract.cpp">
       <Filter>源文件\part6</Filter>
     </ClCompile>
-    <ClCompile Include="sharpenLaplace.cpp">
+    <ClCompile Include="SharpenLaplace.cpp">
       <Filter>源文件\part6</Filter>
     </ClCompile>
   </ItemGroup>

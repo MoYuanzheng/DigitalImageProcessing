@@ -130,11 +130,11 @@
     <ClCompile Include="ColorSmooth.cpp" />
     <ClCompile Include="GRAY2RGB.cpp" />
     <ClCompile Include="HSI2RGB.cpp" />
-    <ClCompile Include="hue.cpp" />
+    <ClCompile Include="Hue.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RGB2HSI.cpp" />
     <ClCompile Include="RGBExtract.cpp" />
-    <ClCompile Include="sharpenLaplace.cpp" />
+    <ClCompile Include="SharpenLaplace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />

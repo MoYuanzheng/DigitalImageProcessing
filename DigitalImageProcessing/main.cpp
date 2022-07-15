@@ -1,12 +1,13 @@
 #include"head.h"
 int main() {
 	Mat image = imread("D:\\image/sample.png");
-	cout << image.type();
 	if (image.empty()) {
 		printf("could not load image...\n");
 		return -1;
 	}
 
+
+	//! ---第六章 彩色图像处理
 	//rgb2hsi(image);
 	//rgbExtract(image);
 	//hsi2rgb(image);
@@ -14,5 +15,7 @@ int main() {
 	//image = hue(image);
 	//image = colorSmooth(image);
 	//image = sharpenLaplace(image);
+
+
 	return 0;
 }
