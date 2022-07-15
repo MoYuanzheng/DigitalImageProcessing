@@ -1,4 +1,4 @@
-#include"head.h"
+ï»¿#include"head.h"
 
 Mat gray2rgb(Mat& image) {
 	//image.convertTo(imageGray, COLOR_RGB2GRAY);
@@ -14,20 +14,20 @@ Mat gray2rgb(Mat& image) {
 			double grayNor = (double)gray / 255;
 			//cout << grayNor << endl;
 
-			//! ÑÕÉ«Æ«°µÊ± --> º£Ñó --> À¶É«´úÌæ
+			//! é¢œè‰²åæš—æ—¶ --> æµ·æ´‹ --> è“è‰²ä»£æ›¿
 
 			if (grayNor >= 0 && grayNor < 0.1) {
 				imageRGB.at<Vec3b>(i, j)[0] = 0.9 * grayNor * 255;
 				imageRGB.at<Vec3b>(i, j)[1] = 0.06 * grayNor * 255;
 				imageRGB.at<Vec3b>(i, j)[2] = 0.04 * grayNor * 255;
 			}
-			//! »Ò¶ÈÖÐµÈÊ± --> ´óÂ½ --> ºì´úÌæ
+			//! ç°åº¦ä¸­ç­‰æ—¶ --> å¤§é™† --> çº¢ä»£æ›¿
 			else if (grayNor >= 0.1 && grayNor < 0.2) {
 				imageRGB.at<Vec3b>(i, j)[0] = 0.05 * grayNor * 255;
 				imageRGB.at<Vec3b>(i, j)[1] = 0.05 * grayNor * 255;
 				imageRGB.at<Vec3b>(i, j)[2] = 0.9 * grayNor * 255;
 			}
-			//! »Ò¶È¸ßÊ± --> ÔÆ²ã --> »Æ´úÌæ
+			//! ç°åº¦é«˜æ—¶ --> äº‘å±‚ --> é»„ä»£æ›¿
 
 			else if (grayNor >= 0.2 && grayNor <= 0.8) {
 				imageRGB.at<Vec3b>(i, j)[0] = 0.1 * grayNor * 255;
@@ -39,9 +39,10 @@ Mat gray2rgb(Mat& image) {
 				imageRGB.at<Vec3b>(i, j)[1] = 0.8 * grayNor * 255;
 				imageRGB.at<Vec3b>(i, j)[2] = 0.8 * grayNor * 255;
 			}
+
 		}
 	}
-	imshow("ÌìÆøÎ±É«²Ê", imageRGB);
+	imshow("å¤©æ°”ä¼ªè‰²å½©", imageRGB);
 	cv::waitKey(0);
 
 	return imageRGB;

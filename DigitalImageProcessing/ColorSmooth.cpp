@@ -1,4 +1,4 @@
-#include"head.h"
+﻿#include"head.h"
 
 Mat colorSmooth(Mat& image) {
 	image = imread("D:\\image/book/DIP3E_Original_Images_CH06/Fig0638(a)(lenna_RGB).tif");
