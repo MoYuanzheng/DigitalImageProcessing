@@ -1,7 +1,7 @@
-#include"head.h"
+ï»¿#include"head.h"
 
 Mat rgb2hsi(Mat& image) {
-	double ¦È;
+	double Î¸;
 	double H;
 	double S;
 	double I;
@@ -14,11 +14,12 @@ Mat rgb2hsi(Mat& image) {
 			double g = (double)image.at<Vec3b>(i, j)[1] / 255;
 			double b = (double)image.at<Vec3b>(i, j)[0] / 255;
 
+
 			double numerator = ((2 * r - g - b) / 2);
 			double denominator = sqrt((pow((r - g), 2) + (r - b) * (g - b)));
 
-			¦È = acos(numerator / denominator);
-			H = 360 * ¦È / (PI * 2);
+			Î¸ = acos(numerator / denominator);
+			H = 360 * Î¸ / (PI * 2);
 
 			if (b > g) {
 				H = 360 - H;

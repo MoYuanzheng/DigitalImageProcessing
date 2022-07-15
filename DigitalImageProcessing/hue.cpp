@@ -1,4 +1,4 @@
-#include"head.h"
+ï»¿#include"head.h"
 
 Mat hue(Mat& image) {
 	//image = avgImage(image);
@@ -7,7 +7,8 @@ Mat hue(Mat& image) {
 	return image;
 }
 
-//! 10/(1+e^(5-x)) Æ½µ­Í¼ÏñĞ£ÕıÇúÏß
+
+//! 10/(1+e^(5-x)) å¹³æ·¡å›¾åƒæ ¡æ­£æ›²çº¿
 Mat avgImage(Mat& image) {
 	Mat imageTrans = Mat::zeros(image.size(), image.type());
 
@@ -23,14 +24,14 @@ Mat avgImage(Mat& image) {
 		}
 	}
 
-	imshow("Ô­Í¼", image);
-	imshow("É«µ÷±ä»»ºó", imageTrans);
+	imshow("åŸå›¾", image);
+	imshow("è‰²è°ƒå˜æ¢å", imageTrans);
 	waitKey(0);
 
 	return image;
 }
 
-//! x^2 Æ«ÁÁÍ¼ÏñĞ£ÕıÇúÏß
+//! x^2 åäº®å›¾åƒæ ¡æ­£æ›²çº¿
 Mat lightImage(Mat& image) {
 	image = imread("D:\\image/book/DIP3E_Original_Images_CH06/Fig0635(middle_row_left_chalk ).tif");
 	Mat imageTrans = Mat::zeros(image.size(), image.type());
@@ -47,14 +48,14 @@ Mat lightImage(Mat& image) {
 		}
 	}
 
-	imshow("Ô­Í¼", image);
-	imshow("É«µ÷±ä»»ºó", imageTrans);
+	imshow("åŸå›¾", image);
+	imshow("è‰²è°ƒå˜æ¢å", imageTrans);
 	waitKey(0);
 
 	return image;
 }
 
-//! x^(1/2) Æ«°µÍ¼ÏñĞ£ÕıÇúÏß
+//! x^(1/2) åæš—å›¾åƒæ ¡æ­£æ›²çº¿
 Mat darkImage(Mat& image) {
 	image = imread("D:\\image/book/DIP3E_Original_Images_CH06/Fig0635(bottom_left_stream).tif");
 	Mat imageTrans = Mat::zeros(image.size(), image.type());
@@ -71,8 +72,8 @@ Mat darkImage(Mat& image) {
 		}
 	}
 
-	imshow("Ô­Í¼", image);
-	imshow("É«µ÷±ä»»ºó", imageTrans);
+	imshow("åŸå›¾", image);
+	imshow("è‰²è°ƒå˜æ¢å", imageTrans);
 	waitKey(0);
 
 	return image;
