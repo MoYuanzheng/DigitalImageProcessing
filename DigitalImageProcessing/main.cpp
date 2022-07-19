@@ -17,9 +17,13 @@ int main() {
 	//image = sharpenLaplace(image);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	image = colorDevision(image);
 =======
 >>>>>>> parent of af909da (utf-8)
+=======
+	image = colorDevision(image);
+>>>>>>> e994950c105769b35eb4ed86d4e8615f1191beb3
 
 	return 0;
 }
