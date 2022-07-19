@@ -1,4 +1,4 @@
-﻿#include"head.h"
+#include"head.h"
 
 void rgbExtract(Mat& image) {
 	Mat red = Mat::zeros(image.size(), image.type());

@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <iostream>
@@ -26,4 +26,5 @@ Mat colorSmooth(Mat& image);
 Mat sharpenLaplace(Mat& image);
 Mat _convolution(Mat& image, Mat& image_temp);
 Mat _merge(Mat& imageA, Mat& imageB);
+Mat colorDevision(Mat& image);
 //! ------------------------------------------
