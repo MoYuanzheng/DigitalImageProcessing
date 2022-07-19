@@ -1,4 +1,4 @@
-﻿#include"head.h"
+#include"head.h"
 
 const int PI = acos(-1);
 Mat hsi2rgb(Mat& image) {
@@ -10,7 +10,6 @@ Mat hsi2rgb(Mat& image) {
 			double S = (double)image.at<Vec3b>(i, j)[1] / 255;
 			double I = (double)image.at<Vec3b>(i, j)[2] / 255;
 			double R, B, G;
-
 
 			if (0 <= H < 120) {
 				B = I * (1 - S);
