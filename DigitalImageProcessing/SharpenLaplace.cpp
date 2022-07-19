@@ -36,6 +36,7 @@ Mat sharpenLaplace(Mat& image) {
 	return image;
 }
 
+
 Mat _convolution(Mat& image, Mat& image_temp) {
 	int w = image.cols;
 	int h = image.rows;

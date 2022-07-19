@@ -1,4 +1,4 @@
-#include"head.h"
+ï»¿#include"head.h"
 int main() {
 	Mat image = imread("D:\\image/sample.png");
 	if (image.empty()) {
@@ -7,7 +7,7 @@ int main() {
 	}
 
 
-	//! ---µÚÁùÕÂ ²ÊÉ«Í¼Ïñ´¦Àí
+	//! ---ç¬¬å…­ç«  å½©è‰²å›¾åƒå¤„ç†
 	//rgb2hsi(image);
 	//rgbExtract(image);
 	//hsi2rgb(image);
@@ -15,15 +15,5 @@ int main() {
 	//image = hue(image);
 	//image = colorSmooth(image);
 	//image = sharpenLaplace(image);
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-	image = colorDevision(image);
-=======
->>>>>>> parent of af909da (utf-8)
-=======
-	image = colorDevision(image);
->>>>>>> e994950c105769b35eb4ed86d4e8615f1191beb3
-
 	return 0;
 }
