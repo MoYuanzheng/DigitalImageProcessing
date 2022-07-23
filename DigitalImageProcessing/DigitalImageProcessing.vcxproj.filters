@@ -16,6 +16,9 @@
     <Filter Include="源文件\part6">
       <UniqueIdentifier>{51e94363-5516-4cd5-8dca-07bd67f48273}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\part10">
+      <UniqueIdentifier>{3343ca81-896d-43fc-9dd3-16d8227dab91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="ColorDivision.cpp">
       <Filter>源文件\part6</Filter>
+    </ClCompile>
+    <ClCompile Include="OutlierCheck.cpp">
+      <Filter>源文件\part10</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

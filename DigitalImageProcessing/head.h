@@ -10,7 +10,7 @@ using namespace std;
 using namespace cv;
 
 
-//! -------- Part 6 -------------------------
+//! -------- Part 6 Start-------------------------
 void rgbExtract(Mat& image);
 Mat rgb2hsi(Mat& image);
 Mat hsi2rgb(Mat& image);
@@ -27,4 +27,10 @@ Mat sharpenLaplace(Mat& image);
 Mat _convolution(Mat& image, Mat& image_temp);
 Mat _merge(Mat& imageA, Mat& imageB);
 Mat colorDevision(Mat& image);
-//! ------------------------------------------
+//! -------- Part 6 End-------------------------
+
+//! -------- Part 10 Start-------------------------
+Mat outlierCheck(Mat& image);
+Mat _convolution2(Mat& image, Mat& image_temp);
+Mat binarization(Mat& image);
+//! -------- Part 10 End-------------------------
