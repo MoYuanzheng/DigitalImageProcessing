@@ -32,7 +32,7 @@ Mat colorDevision(Mat& image);
 //! -------- Part 10 Start-------------------------
 Mat outlierCheck(Mat& image);
 Mat _convolution2(Mat& image, Mat& image_temp);
-Mat binarization(Mat& image);
+Mat binarization(Mat& image, double flag);
 Mat lineCheck(Mat& image);
 Mat _convolution3(Mat& image, Mat& image_temp);
 //! -------- Part 10 End-------------------------

@@ -4,7 +4,7 @@ Mat lineCheck(Mat& image) {
 	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1005(a)(wirebond_mask).tif", 0);
 
 	//! 普通Laplace核
-	double LaplaceArray[3][3] = { {1,1,1},{1,8,1},{1,1,1} };
+	double LaplaceArray[3][3] = { {1,1,1},{1,0,1},{1,1,1} };
 
 	//! 水平Laplace核
 	double horizontalLaplaceArray[3][3] = { {-1,-1,-1},{2,2,2},{-1,-1,-1} };
@@ -58,21 +58,24 @@ Mat _convolution3(Mat& image, Mat& image_temp) {
 					sum += ((double)imageEx.at<uchar>(i + m - 1, j + n - 1) * image_temp.at<double>(m, n));
 				}
 			}
+			//double t = sum - image_temp.at<double>(1, 1) * imageEx.at<uchar>(i, j);
+			double t = sum;
+
 			//! 标准拉普拉斯图
-			convImage.at<double>(i - 1, j - 1) = sum;
+			convImage.at<double>(i - 1, j - 1) = t;
 
 			/*--------------------------------------------------*/
 			//! 绝对值拉普拉斯图
-			//if (sum < 0) {
-			//	convImage.at<double>(i - 1, j - 1) = -sum;
+			//if (t < 0) {
+			//	convImage.at<double>(i - 1, j - 1) = -t;
 			//}
 			//else {
-			//	convImage.at<double>(i - 1, j - 1) = sum;
+			//	convImage.at<double>(i - 1, j - 1) = t;
 			//}
 			/*--------------------------------------------------*/
 			//! 正值拉普拉斯图
-			//if (sum > 0) {
-			//	convImage.at<double>(i - 1, j - 1) = sum;
+			//if (t > 0) {
+			//	convImage.at<double>(i - 1, j - 1) = t;
 			//}
 			//else {
 			//	convImage.at<double>(i - 1, j - 1) = 0;

@@ -3,13 +3,14 @@
 Mat outlierCheck(Mat& image) {
 	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1004(b)(turbine_blade_black_dot).tif", 0);
 
-	int sharpenLaplaceArray[3][3] = { {1,1,1},{1,0,1},{1,1,1} };
+	//! 普通Laplace核
+	int LaplaceArray[3][3] = { {1,1,1},{1,0,1},{1,1,1} };
 
-	Mat sharpenLaplaceTemplate(3, 3, CV_8UC1, sharpenLaplaceArray);
+	Mat sharpenLaplaceTemplate(3, 3, CV_8UC1, LaplaceArray);
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			sharpenLaplaceTemplate.at<uchar>(i, j) = sharpenLaplaceArray[i][j];
+			sharpenLaplaceTemplate.at<uchar>(i, j) = LaplaceArray[i][j];
 		}
 	}
 	imshow("temp", sharpenLaplaceTemplate);
@@ -17,7 +18,7 @@ Mat outlierCheck(Mat& image) {
 	conv = _convolution2(image, sharpenLaplaceTemplate);
 	normalize(conv, conv, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
 	imshow("卷积图", conv);
-	Mat bin = binarization(conv);
+	Mat bin = binarization(conv, 1000.0);
 	imshow("孤立点", bin);
 
 	cv::waitKey(0);
@@ -54,13 +55,13 @@ Mat _convolution2(Mat& image, Mat& image_temp) {
 	return convImage;
 }
 
-Mat binarization(Mat& image) {
+Mat binarization(Mat& image, double flag) {
 	Mat bin;
 	image.copyTo(bin);
 	for (int i = 0; i < bin.rows; i++) {
 		for (int j = 0; j < bin.cols; j++) {
 
-			if (bin.at<double>(i, j) < 1000) {
+			if (bin.at<double>(i, j) < flag) {
 				bin.at<double>(i, j) = 0;
 			}
 		}
