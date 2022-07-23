@@ -1,7 +1,7 @@
 ﻿#include"head.h"
 
-Mat outlierCheck(Mat& image) {
-	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1004(b)(turbine_blade_black_dot).tif", 0);
+Mat lineCheck(Mat& image) {
+	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1005(a)(wirebond_mask).tif", 0);
 
 	int sharpenLaplaceArray[3][3] = { {1,1,1},{1,0,1},{1,1,1} };
 
@@ -13,18 +13,17 @@ Mat outlierCheck(Mat& image) {
 		}
 	}
 	imshow("temp", sharpenLaplaceTemplate);
-	Mat conv(image.rows, image.cols, CV_8UC1);
-	conv = _convolution2(image, sharpenLaplaceTemplate);
-	normalize(conv, conv, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
+	Mat conv(image.rows, image.cols, CV_64F);
+	conv = _convolution3(image, sharpenLaplaceTemplate);
 	imshow("卷积图", conv);
-	Mat bin = binarization(conv);
-	imshow("孤立点", bin);
+	normalize(conv, conv, 0, 1, NORM_MINMAX, CV_64F, Mat());
+	imshow("归一卷积图", conv);
 
 	cv::waitKey(0);
 	return image;
 }
 
-Mat _convolution2(Mat& image, Mat& image_temp) {
+Mat _convolution3(Mat& image, Mat& image_temp) {
 	int w = image.cols;
 	int h = image.rows;
 	Mat convImage(h, w, CV_64F);
@@ -41,29 +40,28 @@ Mat _convolution2(Mat& image, Mat& image_temp) {
 			}
 			double t = sum - 8 * imageEx.at<uchar>(i, j);
 
-			if (t > 0) {
-				convImage.at<double>(i - 1, j - 1) = t;
-			}
-			else {
-				convImage.at<double>(i - 1, j - 1) = 0;
-			}
+			//! 标准拉普拉斯图
+			convImage.at<double>(i - 1, j - 1) = t;
+
+			/*--------------------------------------------------*/
+			//! 绝对值拉普拉斯图
+			//if (t < 0) {
+			//	convImage.at<double>(i - 1, j - 1) = -t;
+			//}
+			//else {
+			//	convImage.at<double>(i - 1, j - 1) = t;
+			//}
+			//! 正值拉普拉斯图
+			//if (t > 0) {
+			//	convImage.at<double>(i - 1, j - 1) = t;
+			//}
+			//else {
+			//	convImage.at<double>(i - 1, j - 1) = 0;
+			//}
+			/*--------------------------------------------------*/
 		}
 	}
-	cv::imshow("convImage", convImage);
+	//cv::imshow("convImage", convImage);
 	//cv::waitKey(0);
 	return convImage;
-}
-
-Mat binarization(Mat& image) {
-	Mat bin;
-	image.copyTo(bin);
-	for (int i = 0; i < bin.rows; i++) {
-		for (int j = 0; j < bin.cols; j++) {
-
-			if (bin.at<double>(i, j) < 1000) {
-				bin.at<double>(i, j) = 0;
-			}
-		}
-	}
-	return bin;
 }

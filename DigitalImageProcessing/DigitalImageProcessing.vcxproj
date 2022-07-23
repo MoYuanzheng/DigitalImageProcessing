@@ -132,6 +132,7 @@
     <ClCompile Include="GRAY2RGB.cpp" />
     <ClCompile Include="HSI2RGB.cpp" />
     <ClCompile Include="Hue.cpp" />
+    <ClCompile Include="LineCheck.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OutlierCheck.cpp" />
     <ClCompile Include="RGB2HSI.cpp" />
