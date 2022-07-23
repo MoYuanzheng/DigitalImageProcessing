@@ -23,7 +23,7 @@ Mat lineCheck(Mat& image) {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 
-			//! 更换核心需要在次赋值
+			//! 更换核心需要在此赋值
 			LaplaceTemplate.at<double>(i, j) = majorLaplaceArray[i][j];
 		}
 	}
@@ -58,11 +58,11 @@ Mat _convolution3(Mat& image, Mat& image_temp) {
 					sum += ((double)imageEx.at<uchar>(i + m - 1, j + n - 1) * image_temp.at<double>(m, n));
 				}
 			}
-			//! 标准拉普拉斯图
+			//! 标准 Laplace 图
 			convImage.at<double>(i - 1, j - 1) = sum;
 
 			/*--------------------------------------------------*/
-			//! 绝对值拉普拉斯图
+			//! 绝对值 Laplace 图
 			//if (sum < 0) {
 			//	convImage.at<double>(i - 1, j - 1) = -sum;
 			//}
@@ -70,7 +70,7 @@ Mat _convolution3(Mat& image, Mat& image_temp) {
 			//	convImage.at<double>(i - 1, j - 1) = sum;
 			//}
 			/*--------------------------------------------------*/
-			//! 正值拉普拉斯图
+			//! 正值 Laplace 图
 			//if (sum > 0) {
 			//	convImage.at<double>(i - 1, j - 1) = sum;
 			//}
