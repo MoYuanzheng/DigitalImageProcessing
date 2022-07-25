@@ -5,11 +5,40 @@
 
 void edgeModel(Mat image) {
 	image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1008(b)(ramp edge).tif", 0);
-	imshow("原图", image);
-	Mat fd = firstDerivative(image);
-	Mat sd = secondDerivative(image);
-	imshow("一阶导数", fd);
-	imshow("二阶导数", sd);
+
+
+	//
+	Mat fd, sd;
+	double average = 0;
+	double stdDev = 0;
+
+	Mat imageNoisy = GaussNoisy(image, average, stdDev);
+	imshow("原噪声图", imageNoisy);
+	imwrite("D:\\image/output/tif/imageNoisy_0.tif", imageNoisy);
+
+	fd = firstDerivative(imageNoisy);
+	sd = secondDerivative(imageNoisy);
+	//! 输出 double 类图，用于 matlab 计算
+	imwrite("D:\\image/output/tif/fd_0.tif", fd);
+	imwrite("D:\\image/output/tif/sd_0.tif", sd);
+
+
+	Mat sd_8, fd_8;
+	normalize(fd, fd_8, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
+	normalize(sd, sd_8, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
+	imshow("一阶导数TIF", fd);
+	imshow("二阶导数TIF", sd);
+
+	//! 输出 uchar 类图，用于观察及记录
+	imwrite("D:\\image/output/png/fd_0.png", fd_8);
+	imwrite("D:\\image/output/png/sd_0.png", sd_8);
+	imshow("一阶导数PNG", fd_8);
+	imshow("二阶导数PNG", sd_8);
+
+	Mat imageNoisyNor;
+	normalize(imageNoisy, imageNoisyNor, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
+	imwrite("D:\\image/output/png/imageNoisy_0.png", imageNoisy);
+
 	waitKey(0);
 }
 
@@ -23,11 +52,7 @@ Mat firstDerivative(Mat& image) {
 		}
 	}
 
-	Mat fdUchar;
-	fd.convertTo(fdUchar, CV_8UC1);
-	//normalize(fd, fd, 0, 1, NORM_MINMAX, CV_64F, Mat());
-
-	return fdUchar;
+	return fd;
 }
 
 Mat secondDerivative(Mat& image) {
@@ -39,8 +64,17 @@ Mat secondDerivative(Mat& image) {
 			sd.at<double>(i, j - 1) = 100 * fdN;
 		}
 	}
-	Mat sdUchar;
-	sd.convertTo(sdUchar, CV_8UC1);
 
-	return sdUchar;
+	return sd;
+}
+
+Mat GaussNoisy(Mat& image, double average, double stdDev) {
+	Mat img_output(image.size(), image.type());
+	Mat noise(image.size(), image.type());
+
+	RNG rng(time(NULL));
+	rng.fill(noise, RNG::NORMAL, average, stdDev);
+
+	cv::add(image, noise, img_output);
+	return img_output;
 }

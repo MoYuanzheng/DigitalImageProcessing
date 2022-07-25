@@ -39,5 +39,5 @@ Mat _convolution3(Mat& image, Mat& image_temp);
 void edgeModel(Mat image);
 Mat firstDerivative(Mat& image);
 Mat secondDerivative(Mat& image);
-void _sobel();
+Mat GaussNoisy(Mat& image, double average, double stdDev);
 //! -------- Part 10 End-------------------------

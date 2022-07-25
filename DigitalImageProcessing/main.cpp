@@ -15,8 +15,13 @@ int main() {
 	//image = hue(image);
 	//image = colorSmooth(image);
 	//image = sharpenLaplace(image);
+	//! ---结束
+
+
+	//! ---第十章 图像分割
 	//image = lineCheck(image);
 	//image = outlierCheck(image);
 	edgeModel(image);
+
 	return 0;
 }

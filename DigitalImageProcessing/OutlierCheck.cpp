@@ -5,14 +5,13 @@
 Mat outlierCheck(Mat& image) {
 	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1004(b)(turbine_blade_black_dot).tif", 0);
 
-	//! 普通Laplace核
-	int LaplaceArray[3][3] = { {1,1,1},{1,0,1},{1,1,1} };
+	double LaplaceArray[3][3] = { {1,1,1},{1,-8,1},{1,1,1} };
 
-	Mat sharpenLaplaceTemplate(3, 3, CV_8UC1, LaplaceArray);
+	Mat sharpenLaplaceTemplate(3, 3, CV_64F, LaplaceArray);
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			sharpenLaplaceTemplate.at<uchar>(i, j) = LaplaceArray[i][j];
+			sharpenLaplaceTemplate.at<double>(i, j) = LaplaceArray[i][j];
 		}
 	}
 	imshow("temp", sharpenLaplaceTemplate);
@@ -20,8 +19,8 @@ Mat outlierCheck(Mat& image) {
 	conv = _convolution2(image, sharpenLaplaceTemplate);
 	normalize(conv, conv, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
 	imshow("卷积图", conv);
-	Mat bin = binarization(conv, 1000.0);
-	imshow("孤立点", bin);
+	//Mat bin = binarization(conv, 1000.0);
+	//imshow("孤立点", bin);
 
 	cv::waitKey(0);
 	return image;
@@ -39,13 +38,12 @@ Mat _convolution2(Mat& image, Mat& image_temp) {
 			double sum = 0;
 			for (int m = 0; m < 3; m++) {
 				for (int n = 0; n < 3; n++) {
-					sum += (imageEx.at<uchar>(i + m - 1, j + n - 1) * image_temp.at<uchar>(m, n));
+					sum += ((double)imageEx.at<uchar>(i + m - 1, j + n - 1) * image_temp.at<double>(m, n));
 				}
 			}
-			double t = sum - 8 * imageEx.at<uchar>(i, j);
 
-			if (t > 0) {
-				convImage.at<double>(i - 1, j - 1) = t;
+			if (sum > 0) {
+				convImage.at<double>(i - 1, j - 1) = sum;
 			}
 			else {
 				convImage.at<double>(i - 1, j - 1) = 0;

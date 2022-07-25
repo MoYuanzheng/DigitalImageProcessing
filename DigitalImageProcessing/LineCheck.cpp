@@ -3,28 +3,28 @@
 Mat lineCheck(Mat& image) {
 	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1005(a)(wirebond_mask).tif", 0);
 
-	//! 普通Laplace核
-	double LaplaceArray[3][3] = { {1,1,1},{1,8,1},{1,1,1} };
+	//! 普通 Laplace 核
+	double LaplaceArray[3][3] = { {1,1,1},{1,-8,1},{1,1,1} };
 
-	//! 水平Laplace核
+	//! 水平线检测 Laplace 核
 	double horizontalLaplaceArray[3][3] = { {-1,-1,-1},{2,2,2},{-1,-1,-1} };
 
 	//! +45°（主对角线）Laplace核
 	double majorLaplaceArray[3][3] = { {2,-1,-1},{-1,2,-1},{-1,-1,2} };
 
-	//! 垂直Laplace核
+	//! 垂直线检测 Laplace 核
 	double verticalLaplaceArray[3][3] = { {-1,2,-1},{-1,2,-1},{-1,2,-1} };
 
 	//! -45°（副对角线）Laplace核
 	double secondaryLaplaceArray[3][3] = { {-1,-1,2},{-1,2,-1},{2,-1,-1} };
 
-	Mat LaplaceTemplate(3, 3, CV_64F, majorLaplaceArray);
+	Mat LaplaceTemplate(3, 3, CV_64F, LaplaceArray);
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 
 			//! 更换核心需要在此赋值
-			LaplaceTemplate.at<double>(i, j) = majorLaplaceArray[i][j];
+			LaplaceTemplate.at<double>(i, j) = LaplaceArray[i][j];
 		}
 	}
 	imshow("temp", LaplaceTemplate);
