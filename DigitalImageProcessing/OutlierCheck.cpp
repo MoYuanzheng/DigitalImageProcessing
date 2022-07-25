@@ -1,4 +1,6 @@
-﻿#include"head.h"
+﻿//! 例题 10.2 && 10.3
+
+#include"head.h"
 
 Mat outlierCheck(Mat& image) {
 	image = cv::imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1004(b)(turbine_blade_black_dot).tif", 0);

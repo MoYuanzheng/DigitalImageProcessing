@@ -54,6 +54,9 @@
     <ClCompile Include="LineCheck.cpp">
       <Filter>源文件\part10</Filter>
     </ClCompile>
+    <ClCompile Include="EdgeModel.cpp">
+      <Filter>源文件\part10</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">

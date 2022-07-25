@@ -15,7 +15,8 @@ int main() {
 	//image = hue(image);
 	//image = colorSmooth(image);
 	//image = sharpenLaplace(image);
-	image = lineCheck(image);
+	//image = lineCheck(image);
 	//image = outlierCheck(image);
+	edgeModel(image);
 	return 0;
 }

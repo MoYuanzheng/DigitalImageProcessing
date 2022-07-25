@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ColorDivision.cpp" />
     <ClCompile Include="ColorSmooth.cpp" />
+    <ClCompile Include="EdgeModel.cpp" />
     <ClCompile Include="GRAY2RGB.cpp" />
     <ClCompile Include="HSI2RGB.cpp" />
     <ClCompile Include="Hue.cpp" />
