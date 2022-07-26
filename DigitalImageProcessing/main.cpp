@@ -21,7 +21,7 @@ int main() {
 	//! ---第十章 图像分割
 	//image = lineCheck(image);
 	//image = outlierCheck(image);
-	edgeModel(image);
-
+	//edgeModel(image);
+	image = Gradient2D(image);
 	return 0;
 }

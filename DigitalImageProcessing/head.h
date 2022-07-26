@@ -40,4 +40,6 @@ void edgeModel(Mat image);
 Mat firstDerivative(Mat& image);
 Mat secondDerivative(Mat& image);
 Mat GaussNoisy(Mat& image, double average, double stdDev);
+Mat Gradient2D(Mat& image);
+Mat _convolution4(Mat image, double sobel[][3]);
 //! -------- Part 10 End-------------------------
