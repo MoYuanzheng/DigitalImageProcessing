@@ -22,6 +22,7 @@ int main() {
 	//image = lineCheck(image);
 	//image = outlierCheck(image);
 	//edgeModel(image);
-	image = Gradient2D(image);
+	//image = Gradient2D(image);
+	MarrHildrethEdge(image, 2, 4);
 	return 0;
 }

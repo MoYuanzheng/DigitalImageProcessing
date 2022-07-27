@@ -136,6 +136,7 @@
     <ClCompile Include="Hue.cpp" />
     <ClCompile Include="LineCheck.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MarrHildreth.cpp" />
     <ClCompile Include="OutlierCheck.cpp" />
     <ClCompile Include="RGB2HSI.cpp" />
     <ClCompile Include="RGBExtract.cpp" />
