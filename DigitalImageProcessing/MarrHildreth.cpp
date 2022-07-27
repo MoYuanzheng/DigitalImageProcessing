@@ -36,22 +36,23 @@ void MarrHildrethEdge(Mat image, int kSize, double sigma)
 
 	Mat laNor;
 
-	Mat marr0 = Mat::zeros(LoG.size(), CV_64F);
-	Mat marr0_04 = Mat::zeros(LoG.size(), CV_64F);
+	Mat marr0 = Mat::zeros(LoG.size(), CV_64FC1);
+	Mat marr0_04 = Mat::zeros(LoG.size(), CV_64FC1);
 	normalize(LoG, laNor, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
 	imshow("laNor", laNor);
 	//遍历LoG算子
 
 	for (int i = 1; i < LoG.rows - 1; i++) {
 		for (int j = 1; j < LoG.cols - 1; j++) {
-			if ((LoG.at<double>(i - 1, j) * LoG.at<double>(i + 1, j) < 0)
-				|| (LoG.at<double>(i, j - 1) * LoG.at<double>(i, j + 1) < 0)
+			if (   (LoG.at<double>(i - 1, j)     * LoG.at<double>(i + 1, j)     < 0)
+				|| (LoG.at<double>(i, j - 1)     * LoG.at<double>(i, j + 1)     < 0)
 				|| (LoG.at<double>(i - 1, j + 1) * LoG.at<double>(i + 1, j - 1) < 0)
 				|| (LoG.at<double>(i - 1, j - 1) * LoG.at<double>(i + 1, j + 1) < 0)) {
 				marr0.at<double>(i, j) = LoG.at<double>(i, j);
 			}
-			if (LoG.at<double>(i, j) > max * 0.035 && ((LoG.at<double>(i - 1, j) * LoG.at<double>(i + 1, j) < 0)
-				|| (LoG.at<double>(i, j - 1) * LoG.at<double>(i, j + 1) < 0)
+			if (LoG.at<double>(i, j) > max * 0.035 
+				&& ((LoG.at<double>(i - 1, j)    * LoG.at<double>(i + 1, j)     < 0)
+				|| (LoG.at<double>(i, j - 1)     * LoG.at<double>(i, j + 1)     < 0)
 				|| (LoG.at<double>(i - 1, j + 1) * LoG.at<double>(i + 1, j - 1) < 0)
 				|| (LoG.at<double>(i - 1, j - 1) * LoG.at<double>(i + 1, j + 1) < 0))) {
 				marr0_04.at<double>(i, j) = LoG.at<double>(i, j);
