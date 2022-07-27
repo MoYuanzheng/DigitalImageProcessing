@@ -16,7 +16,7 @@ void MarrHildrethEdge(Mat image, int kSize, double sigma)
 
 		}
 	}
-	//设置输出参数
+	//卷积
 	Mat LoG(image.rows - kSize * 2, image.cols - kSize * 2, CV_64FC1);
 	double max = -1.6e-30;
 	for (int i = kSize; i < image.rows - kSize; i++) {
