@@ -43,4 +43,16 @@ Mat GaussNoisy(Mat& image, double average, double stdDev);
 Mat Gradient2D(Mat& image);
 Mat _convolution4(Mat image, double sobel[][3]);
 void MarrHildrethEdge(Mat image, int kSize, double sigma);
+
+void canny(Mat image);
+Mat GuassianKernel(double sigma);
+Mat _convolution5(Mat image, Mat kernel);
+Mat GradientValue(Mat image);
+Mat GradientAlpha(Mat image);
+Mat _convolution6(Mat image, double sobel[][3]);
+Mat AlphaDetermine(Mat gradImage, Mat gradAlpha);
+
+double MaxValue(Mat image);
+Mat ThresholdFilter(Mat image, double TH, double TL);
+
 //! -------- Part 10 End-------------------------

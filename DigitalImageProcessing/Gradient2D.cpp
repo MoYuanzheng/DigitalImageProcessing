@@ -1,7 +1,7 @@
 ﻿#include"head.h"
 
 Mat Gradient2D(Mat& image) {
-	image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1016(a)(building_original).tif", CV_64F);
+	//image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1016(a)(building_original).tif", CV_64F);
 	Mat imageNor;
 	normalize(image, imageNor, 0, 255, NORM_MINMAX, CV_8UC1, Mat());
 	imshow("原图", imageNor);
@@ -28,12 +28,13 @@ Mat Gradient2D(Mat& image) {
 	imshow("垂直卷积归一图", convVerticalNor);
 
 	//! |g(x)| + |g(y)|
-	Mat gradImage;
-	cv::add(convVerticalNor, convHorizenNor, gradImage);
+	Mat gradImageNor, gradImage;
+	cv::add(convVerticalNor, convHorizenNor, gradImageNor);
+	cv::add(convVertical, convHorizen, gradImage);
 	imshow("梯度图像", gradImage);
 
-	waitKey(0);
-	return image;
+	//waitKey(0);
+	return gradImage;
 }
 
 Mat _convolution4(Mat image, double sobel[][3]) {
@@ -52,7 +53,11 @@ Mat _convolution4(Mat image, double sobel[][3]) {
 			double sum = 0;
 			for (int m = 0; m < 3; m++) {
 				for (int n = 0; n < 3; n++) {
-					sum += ((double)imageEx.at<uchar>(i + m - 1, j + n - 1) * sobel[m][n]);
+					sum += ((double)imageEx.at<double>(i + m - 1, j + n - 1) * sobel[m][n]);
+
+					//! canny调用时应选择 double 类型，main调用时使用 uchar
+					//sum += ((double)imageEx.at<uchar>(i + m - 1, j + n - 1) * sobel[m][n]);
+
 				}
 			}
 			if (sum < 0) {

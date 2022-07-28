@@ -44,17 +44,17 @@ void MarrHildrethEdge(Mat image, int kSize, double sigma)
 
 	for (int i = 1; i < LoG.rows - 1; i++) {
 		for (int j = 1; j < LoG.cols - 1; j++) {
-			if (   (LoG.at<double>(i - 1, j)     * LoG.at<double>(i + 1, j)     < 0)
-				|| (LoG.at<double>(i, j - 1)     * LoG.at<double>(i, j + 1)     < 0)
+			if ((LoG.at<double>(i - 1, j) * LoG.at<double>(i + 1, j) < 0)
+				|| (LoG.at<double>(i, j - 1) * LoG.at<double>(i, j + 1) < 0)
 				|| (LoG.at<double>(i - 1, j + 1) * LoG.at<double>(i + 1, j - 1) < 0)
 				|| (LoG.at<double>(i - 1, j - 1) * LoG.at<double>(i + 1, j + 1) < 0)) {
 				marr0.at<double>(i, j) = LoG.at<double>(i, j);
 			}
-			if (LoG.at<double>(i, j) > max * 0.035 
-				&& ((LoG.at<double>(i - 1, j)    * LoG.at<double>(i + 1, j)     < 0)
-				|| (LoG.at<double>(i, j - 1)     * LoG.at<double>(i, j + 1)     < 0)
-				|| (LoG.at<double>(i - 1, j + 1) * LoG.at<double>(i + 1, j - 1) < 0)
-				|| (LoG.at<double>(i - 1, j - 1) * LoG.at<double>(i + 1, j + 1) < 0))) {
+			if (LoG.at<double>(i, j) > max * 0.035
+				&& ((LoG.at<double>(i - 1, j) * LoG.at<double>(i + 1, j) < 0)
+					|| (LoG.at<double>(i, j - 1) * LoG.at<double>(i, j + 1) < 0)
+					|| (LoG.at<double>(i - 1, j + 1) * LoG.at<double>(i + 1, j - 1) < 0)
+					|| (LoG.at<double>(i - 1, j - 1) * LoG.at<double>(i + 1, j + 1) < 0))) {
 				marr0_04.at<double>(i, j) = LoG.at<double>(i, j);
 			}
 		}
