@@ -2,9 +2,9 @@
 
 void MarrHildrethEdge(Mat image, int kSize, double sigma)
 {
-	kSize = 25;
-	sigma = 4;
-	image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1022(a)(building_original).tif", 0);
+	kSize = 9;
+	sigma = 3;
+	image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1026(a)(headCT-Vandy).tif", 0);
 
 	//使用 Laplacian of Gaussian 函数计算卷积模板
 	int kernel_dia = kSize * 2 + 1;
@@ -50,7 +50,7 @@ void MarrHildrethEdge(Mat image, int kSize, double sigma)
 				|| (LoG.at<double>(i - 1, j - 1) * LoG.at<double>(i + 1, j + 1) < 0)) {
 				marr0.at<double>(i, j) = LoG.at<double>(i, j);
 			}
-			if (LoG.at<double>(i, j) > max * 0.035
+			if (LoG.at<double>(i, j) > max * 0.002
 				&& ((LoG.at<double>(i - 1, j) * LoG.at<double>(i + 1, j) < 0)
 					|| (LoG.at<double>(i, j - 1) * LoG.at<double>(i, j + 1) < 0)
 					|| (LoG.at<double>(i - 1, j + 1) * LoG.at<double>(i + 1, j - 1) < 0)
@@ -59,6 +59,9 @@ void MarrHildrethEdge(Mat image, int kSize, double sigma)
 			}
 		}
 	}
+
+	normalize(marr0, marr0, 0, 1, NORM_MINMAX, CV_64FC1);
+	normalize(marr0_04, marr0_04, 0, 1, NORM_MINMAX, CV_64FC1);
 	imshow("marr0", marr0);
 	imshow("marr0_04", marr0_04);
 	waitKey(0);

@@ -24,6 +24,7 @@ int main() {
 	//edgeModel(image);
 	//image = Gradient2D(image);
 	//MarrHildrethEdge(image, 2, 4);
-	canny(image);
+	//canny(image);
+	image = hough(image);
 	return 0;
 }

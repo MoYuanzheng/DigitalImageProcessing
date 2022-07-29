@@ -66,6 +66,9 @@
     <ClCompile Include="Canny.cpp">
       <Filter>源文件\part10</Filter>
     </ClCompile>
+    <ClCompile Include="Hough.cpp">
+      <Filter>源文件\part10</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">

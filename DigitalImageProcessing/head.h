@@ -27,6 +27,7 @@ Mat sharpenLaplace(Mat& image);
 Mat _convolution(Mat& image, Mat& image_temp);
 Mat _merge(Mat& imageA, Mat& imageB);
 Mat colorDevision(Mat& image);
+Mat hough(Mat image);
 //! -------- Part 6 End-------------------------
 
 

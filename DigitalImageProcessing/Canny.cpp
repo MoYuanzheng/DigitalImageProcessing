@@ -43,11 +43,10 @@ void canny(Mat image) {
 		//	imshow("Canny_1", Canny_1);
 		//
 	}
-
 	//!? -------------------O P E N  C V-------------------------------
 
 	//! 求取高斯核
-	Mat guassianKernel = GuassianKernel(4);
+	Mat guassianKernel = GuassianKernel(2);
 
 	//! 高斯卷积
 	Mat conv = _convolution5(image, guassianKernel);
@@ -69,11 +68,11 @@ void canny(Mat image) {
 
 	//! 判断角度并抑制非极大值
 	Mat gradValueNMS = AlphaDetermine(gradValue, gradAlpha);
-	//normalize(gradValueNMS, gradValueNMS, 0, 1, NORM_MINMAX);
+	normalize(gradValueNMS, gradValueNMS, 0, 1, NORM_MINMAX);
 	imshow("极大抑制图", gradValueNMS);
 
-	double TH = 0.1 * maxValue;
-	double TL = 0.04 * maxValue;
+	double TH = 0.3 * maxValue;
+	double TL = 0.15 * maxValue;
 
 	Mat canny = ThresholdFilter(gradValueNMS, TH, TL);
 	normalize(canny, canny, 0, 1, NORM_MINMAX);
@@ -85,7 +84,7 @@ void canny(Mat image) {
 //! 生成高斯核
 Mat GuassianKernel(double sigma) {
 	int n = 6 * sigma + 1;
-	double size = (n - 1) / 2;
+	int size = (n - 1) / 2;
 	Mat kernel = Mat::zeros(n, n, CV_64FC1);
 
 	for (int i = -size; i <= size; i++) {
@@ -282,4 +281,3 @@ Mat ThresholdFilter(Mat image, double TH, double TL) {
 	}
 	return canny;
 }
-
