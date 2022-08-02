@@ -57,3 +57,8 @@ double MaxValue(Mat image);
 Mat ThresholdFilter(Mat image, double TH, double TL);
 
 //! -------- Part 10 End-------------------------
+//! -------- Home 4 Start-------------------------
+Mat harris(Mat image);
+
+
+//! -------- Hmoe 4 -End-------------------------

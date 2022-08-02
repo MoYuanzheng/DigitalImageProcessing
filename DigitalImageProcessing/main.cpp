@@ -1,6 +1,6 @@
 ﻿#include"head.h"
 int main() {
-	Mat image = imread("D:\\image/sample.png");
+	Mat image = imread("D:\\image/sample.png", 0);
 	if (image.empty()) {
 		printf("could not load image...\n");
 		return -1;
@@ -25,6 +25,7 @@ int main() {
 	//image = Gradient2D(image);
 	//MarrHildrethEdge(image, 2, 4);
 	//canny(image);
-	image = hough(image);
+	//image = hough(image);
+	image = harris(image);
 	return 0;
 }

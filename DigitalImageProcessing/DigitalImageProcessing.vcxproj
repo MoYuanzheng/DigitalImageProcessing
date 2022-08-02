@@ -133,6 +133,7 @@
     <ClCompile Include="EdgeModel.cpp" />
     <ClCompile Include="Gradient2D.cpp" />
     <ClCompile Include="GRAY2RGB.cpp" />
+    <ClCompile Include="Harris.cpp" />
     <ClCompile Include="Hough.cpp" />
     <ClCompile Include="HSI2RGB.cpp" />
     <ClCompile Include="Hue.cpp" />

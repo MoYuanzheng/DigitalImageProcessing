@@ -19,6 +19,9 @@
     <Filter Include="源文件\part10">
       <UniqueIdentifier>{3343ca81-896d-43fc-9dd3-16d8227dab91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\home4">
+      <UniqueIdentifier>{fd4f5ef3-5ec3-4b33-8e20-e4f812a00840}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="Hough.cpp">
       <Filter>源文件\part10</Filter>
+    </ClCompile>
+    <ClCompile Include="Harris.cpp">
+      <Filter>源文件\home4</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
