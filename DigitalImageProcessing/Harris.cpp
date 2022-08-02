@@ -2,7 +2,7 @@
 
 
 Mat harris(Mat image) {
-	image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1036(a)(original_septagon).tif", 0);
+	image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1022(a)(building_original).tif", 0);
 
 	//! 1. 计算一阶微分，分 x，y两个方向
 	Mat gx, gy;
@@ -46,9 +46,10 @@ Mat harris(Mat image) {
 	cv::minMaxLoc(R, NULL, &max, NULL, NULL);
 
 	//! 5. 非极大值抑制 NMS 及 阈值过滤，保留像素即为灰度值
-	int NMSsize = 5;
-	for (int i = NMSsize / 2; i < image.rows - NMSsize / 2; i++) {
-		for (int j = NMSsize / 2; j < image.cols - NMSsize / 2; j++) {
+	int NMSsize = 3;
+	copyMakeBorder(R, R, NMSsize / 2, NMSsize / 2, NMSsize / 2, NMSsize / 2, 0);
+	for (int i = NMSsize / 2; i < R.rows - NMSsize / 2; i++) {
+		for (int j = NMSsize / 2; j < R.cols - NMSsize / 2; j++) {
 			if (R.at<double>(i, j) < 0.1 * max) {
 				R.at<double>(i, j) = 0;
 				continue;
@@ -64,16 +65,18 @@ Mat harris(Mat image) {
 	}
 
 	//! 6. 绘制到原图中
-
-	for (int i = 0; i < image.rows; i++) {
-		for (int j = 0; j < image.cols; j++) {
+	Mat corner;
+	image.copyTo(corner);
+	cvtColor(corner, corner, COLOR_BGR2RGB);
+	for (int i = NMSsize / 2; i < R.rows - NMSsize / 2; i++) {
+		for (int j = NMSsize / 2; j < R.cols - NMSsize / 2; j++) {
 			// AC - B^2
 			if (R.at<double>(i, j) > 0) {
-				cv::circle(image, cv::Point(j, i), 3, cv::Scalar(255, 0, 0), 2);
+				cv::circle(corner, cv::Point(j - NMSsize / 2, i - NMSsize / 2), 8, cv::Scalar(0, 0, 255), 2);
 			}
 		}
 	}
 
-	imshow("image", image);
+	imshow("corner", corner);
 	waitKey(0);
 }
