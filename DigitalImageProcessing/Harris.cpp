@@ -6,7 +6,6 @@ Mat harris(Mat image) {
 
 	//! 1. 计算一阶微分，分 x，y两个方向
 	Mat gx, gy;
-
 	cv::Scharr(image, gx, CV_64FC1, 1, 0, 3);
 	cv::Scharr(image, gy, CV_64FC1, 0, 1, 3);
 
@@ -40,19 +39,13 @@ Mat harris(Mat image) {
 
 			// 临时 R
 			tempR = detM.at<double>(i, j) - alpha * traceM.at<double>(i, j) * traceM.at<double>(i, j);
-
-			// 过滤
-			if (tempR < t) {
-				R.at<double>(i, j) = 0;
-			}
-			else {
-				R.at<double>(i, j) = tempR;
-			}
+			R.at<double>(i, j) = tempR;
 
 		}
 	}
 	cv::minMaxLoc(R, NULL, &max, NULL, NULL);
-	//! 5. 非极大值抑制 NMS 及阈值过滤,保留像素即为灰度值
+
+	//! 5. 非极大值抑制 NMS 及 阈值过滤，保留像素即为灰度值
 	int NMSsize = 5;
 	for (int i = NMSsize / 2; i < image.rows - NMSsize / 2; i++) {
 		for (int j = NMSsize / 2; j < image.cols - NMSsize / 2; j++) {
@@ -70,8 +63,17 @@ Mat harris(Mat image) {
 		}
 	}
 
+	//! 6. 绘制到原图中
 
+	for (int i = 0; i < image.rows; i++) {
+		for (int j = 0; j < image.cols; j++) {
+			// AC - B^2
+			if (R.at<double>(i, j) > 0) {
+				cv::circle(image, cv::Point(j, i), 3, cv::Scalar(255, 0, 0), 2);
+			}
+		}
+	}
 
-	imshow("R", R);
+	imshow("image", image);
 	waitKey(0);
 }
