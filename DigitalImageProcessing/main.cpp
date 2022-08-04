@@ -1,6 +1,7 @@
 ﻿#include"head.h"
 int main() {
-	Mat image = imread("D:\\image/sample.png", 0);
+	//Mat image = imread("D:\\image/sample.png", 0);
+	Mat image = imread("D:\\image/book/DIP3E_Original_Images_CH10/Fig1036(a)(original_septagon).tif", 0);
 	if (image.empty()) {
 		printf("could not load image...\n");
 		return -1;
@@ -26,6 +27,7 @@ int main() {
 	//MarrHildrethEdge(image, 2, 4);
 	//canny(image);
 	//image = hough(image);
-	image = harris(image);
+	//image = harris(image);
+	image = susan(image);
 	return 0;
 }

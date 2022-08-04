@@ -144,6 +144,7 @@
     <ClCompile Include="RGB2HSI.cpp" />
     <ClCompile Include="RGBExtract.cpp" />
     <ClCompile Include="SharpenLaplace.cpp" />
+    <ClCompile Include="Susan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h" />

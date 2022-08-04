@@ -75,6 +75,9 @@
     <ClCompile Include="Harris.cpp">
       <Filter>源文件\home4</Filter>
     </ClCompile>
+    <ClCompile Include="Susan.cpp">
+      <Filter>源文件\home4</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">

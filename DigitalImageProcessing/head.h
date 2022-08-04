@@ -59,6 +59,7 @@ Mat ThresholdFilter(Mat image, double TH, double TL);
 //! -------- Part 10 End-------------------------
 //! -------- Home 4 Start-------------------------
 Mat harris(Mat image);
-
-
+Mat susan(Mat image);
+Mat USAN(Mat image, int temp[][7]);
+Mat USAN2(Mat image, int temp[][7]);
 //! -------- Hmoe 4 -End-------------------------
