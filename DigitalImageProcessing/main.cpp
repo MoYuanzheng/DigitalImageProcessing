@@ -28,6 +28,7 @@ int main() {
 	//canny(image);
 	//image = hough(image);
 	//image = harris(image);
-	image = susan(image);
+	//image = susan(image);
+	lineFitting_1();
 	return 0;
 }

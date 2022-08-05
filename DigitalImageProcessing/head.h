@@ -5,6 +5,7 @@
 #include <cmath>
 #include <string>
 #include <vector>
+#include<math.h>
 
 using namespace std;
 using namespace cv;
@@ -62,4 +63,5 @@ Mat harris(Mat image);
 Mat susan(Mat image);
 Mat USAN(Mat image, int temp[][7]);
 Mat USAN2(Mat image, int temp[][7]);
+void lineFitting_1();
 //! -------- Hmoe 4 -End-------------------------

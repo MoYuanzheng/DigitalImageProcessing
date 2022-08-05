@@ -63,7 +63,6 @@ Mat susan(Mat image) {
 			}
 		}
 	}
-
 	imshow("NMS", NMS);
 
 	//!  绘制到原图中

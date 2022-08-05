@@ -137,6 +137,7 @@
     <ClCompile Include="Hough.cpp" />
     <ClCompile Include="HSI2RGB.cpp" />
     <ClCompile Include="Hue.cpp" />
+    <ClCompile Include="line.cpp" />
     <ClCompile Include="LineCheck.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarrHildreth.cpp" />
