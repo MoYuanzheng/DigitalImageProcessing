@@ -68,6 +68,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="PCL3D.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -142,6 +143,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarrHildreth.cpp" />
     <ClCompile Include="OutlierCheck.cpp" />
+    <ClCompile Include="plane.cpp" />
     <ClCompile Include="RGB2HSI.cpp" />
     <ClCompile Include="RGBExtract.cpp" />
     <ClCompile Include="SharpenLaplace.cpp" />

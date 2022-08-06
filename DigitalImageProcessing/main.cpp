@@ -29,6 +29,8 @@ int main() {
 	//image = hough(image);
 	//image = harris(image);
 	//image = susan(image);
-	lineFitting_1();
+
+	//lineFitting_1();
+	Plane();
 	return 0;
 }

@@ -3,6 +3,7 @@
 #include <opencv2/imgproc.hpp>
 #include <iostream>
 #include <cmath>
+#include <ctime>
 #include <string>
 #include <vector>
 #include<math.h>
@@ -63,5 +64,14 @@ Mat harris(Mat image);
 Mat susan(Mat image);
 Mat USAN(Mat image, int temp[][7]);
 Mat USAN2(Mat image, int temp[][7]);
-void lineFitting_1();
+
 //! -------- Hmoe 4 -End-------------------------
+//! 
+//! -------- 实习 Start-------------------------
+
+
+void lineFitting_1();
+void Plane();
+
+//! -------- 实习 -End-------------------------
+//! 

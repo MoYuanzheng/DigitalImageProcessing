@@ -25,6 +25,9 @@
     <Filter Include="源文件\fitting">
       <UniqueIdentifier>{eb24ca45-f0f0-485c-aba1-510a4488f071}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\fitting\3D">
+      <UniqueIdentifier>{d6808d0c-43e3-4c91-84c5-291e126f8d71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="line.cpp">
       <Filter>源文件\fitting</Filter>
+    </ClCompile>
+    <ClCompile Include="plane.cpp">
+      <Filter>源文件\fitting\3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
