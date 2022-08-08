@@ -30,7 +30,7 @@ int main() {
 	//image = harris(image);
 	//image = susan(image);
 
-	//lineFitting_1();
-	Plane();
+	lineFitting();
+	//Plane();
 	return 0;
 }

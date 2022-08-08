@@ -69,9 +69,9 @@ Mat USAN2(Mat image, int temp[][7]);
 //! 
 //! -------- 实习 Start-------------------------
 
-
-void lineFitting_1();
+void lineFitting();
+void lineFitting_1(Mat src, vector<Point> Points, float tolerance);
 void Plane();
-
+void lineFitting_2(Mat src, vector<Point> Points, float tolerance);
 //! -------- 实习 -End-------------------------
 //! 
